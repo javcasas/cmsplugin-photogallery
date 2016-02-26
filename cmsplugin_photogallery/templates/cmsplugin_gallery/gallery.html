@@ -1,0 +1,13 @@
+{% for object in objects_list %}
+    {% if forloop.first %} 
+        <div class='{{ row_class }}'>
+    {% elif forloop.counter0|divisibleby:items_per_row %}
+        </div><div class='{{ row_class }}'>
+    {% endif %}
+<div class='{{ cell_class }}'>
+    <img class='{{ img_class }}' src="{{ object.image.url }}" alt="{% if object.alt_tag %}{{ object.alt_tag }}{% else %}{{ object.image.default_alt_text }}{% endif %}">
+</div>
+    {% if forloop.last %}
+        </div>
+    {% endif %}
+{% endfor %}
