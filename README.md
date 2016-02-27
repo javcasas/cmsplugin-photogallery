@@ -9,7 +9,7 @@ This app needs:
 
 ## SetUp
 
-    pip install git+git://github.com/javcasas/cmsplugin-gallery.git
+    pip install git+git://github.com/javcasas/cmsplugin-photogallery.git
 
 
 You should have these in installed apps:

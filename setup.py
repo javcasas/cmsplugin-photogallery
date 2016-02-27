@@ -7,14 +7,14 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='cmsplugin-gallery',
-    url='https://github.com/javcasas/cmsplugin-gallery',
+    url='https://github.com/javcasas/cmsplugin-photogallery',
     version='0.0.1',
     description='A simple app to create DjangoCMS photo galleries.',
     long_description=README,
     install_requires=[
         'django-cms>=2.4.3',
         'cmsplugin-filer>=0.9.5',
-        'django-orderedmodel>=0.1.5',
+        'django-ordered-model>=0.1.5',
     ],
     dependency_links=[
         'git+https://github.com/bfirsh/django-ordered-model.git@1.1.0#egg=django-orderedmodel-1.1.0',
