@@ -31,6 +31,7 @@ class CMSGalleryPlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         context.update({
+            'auto_id': 'gallery_{}'.format(instance.pk),
             'row_class': instance.row_class,
             'cell_class': instance.cell_class,
             'img_class': instance.img_class,
