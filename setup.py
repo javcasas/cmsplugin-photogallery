@@ -8,7 +8,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 setup(
     name='cmsplugin-photogallery',
     url='https://github.com/javcasas/cmsplugin-photogallery',
-    version='0.0.1',
+    version='0.0.2',
     description='A simple app to create DjangoCMS photo galleries.',
     long_description=README,
     install_requires=[

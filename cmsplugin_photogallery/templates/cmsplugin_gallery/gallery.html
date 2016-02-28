@@ -1,3 +1,5 @@
+{% load cms_tags staticfiles sekizai_tags menu_tags %}
+
 {% for object in objects_list %}
     {% if forloop.first %} 
         <div class='{{ row_class }}'>
@@ -5,9 +7,38 @@
         </div><div class='{{ row_class }}'>
     {% endif %}
 <div class='{{ cell_class }}'>
-    <img class='{{ img_class }}' src="{{ object.image.url }}" alt="{% if object.alt_tag %}{{ object.alt_tag }}{% else %}{{ object.image.default_alt_text }}{% endif %}">
+    <img class='{{ img_class }} {{ auto_id }}' src="{{ object.image.url }}" alt="{% if object.alt_tag %}{{ object.alt_tag }}{% else %}{{ object.image.default_alt_text }}{% endif %}">
 </div>
     {% if forloop.last %}
         </div>
     {% endif %}
 {% endfor %}
+
+{% if show_on_popup %}
+<div class="modal fade" id="{{ auto_id }}_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-footer">
+        <div class='col-xs-12'>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <img class='img-content col-xs-12' src='' />
+        <div class='col-xs-12'>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% addtoblock 'js' %}
+<script>
+    jQuery('.{{ auto_id }}').on('click', function (ev) {
+        var img_url = $(this).attr('src');
+        var modal = $('#{{ auto_id }}_modal');
+        var modal_img = $('#{{ auto_id }}_modal .img-content');
+        modal_img.attr('src', img_url);
+        modal.modal('show');
+    });
+</script>
+{% endaddtoblock 'js' %}
+{% endif %}

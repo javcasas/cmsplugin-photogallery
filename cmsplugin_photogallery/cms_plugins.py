@@ -36,6 +36,7 @@ class CMSGalleryPlugin(CMSPluginBase):
             'img_class': instance.img_class,
             'items_per_row': instance.items_per_row,
             'objects_list': instance.pictures.select_related('image'),
+            'show_on_popup': True,
         })
         return context
 
