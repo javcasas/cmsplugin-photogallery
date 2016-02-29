@@ -33,3 +33,6 @@ class GalleryPicture(OrderedModel):
 
     def __unicode__(self):
         return unicode(self.alt_tag)
+
+    class Meta(OrderedModel.Meta):
+        pass
